@@ -2,6 +2,8 @@ import 'package:bookia/components/buttons/main_button.dart';
 import 'package:bookia/core/constants/app_assets.dart';
 import 'package:bookia/core/constants/app_colors.dart';
 import 'package:bookia/core/extensions/media_query.dart';
+import 'package:bookia/core/extensions/navigation.dart';
+import 'package:bookia/core/routers/routers.dart';
 import 'package:bookia/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -33,7 +35,9 @@ class WelcomeScreen extends StatelessWidget {
                   Text('Order Your Book Now!', style: TextStyles.getTitle()),
                   Spacer(),
 
-                  MainButton(text: 'Login', onPressed: () {}),
+                  MainButton(text: 'Login', onPressed: () {
+                    context.pushTo(Routes.login);
+                  }),
 
                   Gap(15),
                   MainButton(
@@ -41,7 +45,10 @@ class WelcomeScreen extends StatelessWidget {
                     bgColor: AppColors.whiteColor,
                     textColor: AppColors.darkColor,
                     borderColor: AppColors.darkColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushTo(Routes.register);
+
+                    },
                   ),
                   Gap(context.height * 0.1),
                 ],
