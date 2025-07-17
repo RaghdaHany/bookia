@@ -8,20 +8,20 @@ import 'package:gap/gap.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-  
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
-  
-class _SplashScreenState extends State<SplashScreen>{
+
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 2),(){
+    Future.delayed(const Duration(seconds: 2), () {
       context.pushWithReplacement(Routes.welcome);
     });
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,10 +29,9 @@ class _SplashScreenState extends State<SplashScreen>{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(AppAssets.logoSvg,width:210),
+            SvgPicture.asset(AppAssets.logoSvg, width: 210),
             Gap(10),
-            Text('Order Your Book Now!',
-             style: TextStyles.getTitle())
+            Text('Order Your Book Now!', style: TextStyles.getTitle()),
           ],
         ),
       ),

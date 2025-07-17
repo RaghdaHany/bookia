@@ -30,14 +30,20 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Gap(context.height * 0.15),
-                  SvgPicture.asset(AppAssets.logoSvg, width: context.width* 0.55),
+                  SvgPicture.asset(
+                    AppAssets.logoSvg,
+                    width: context.width * 0.55,
+                  ),
                   Gap(10),
                   Text('Order Your Book Now!', style: TextStyles.getTitle()),
                   Spacer(),
 
-                  MainButton(text: 'Login', onPressed: () {
-                    context.pushTo(Routes.login);
-                  }),
+                  MainButton(
+                    text: 'Login',
+                    onPressed: () {
+                      context.pushTo(Routes.login);
+                    },
+                  ),
 
                   Gap(15),
                   MainButton(
@@ -47,7 +53,6 @@ class WelcomeScreen extends StatelessWidget {
                     borderColor: AppColors.darkColor,
                     onPressed: () {
                       context.pushTo(Routes.register);
-
                     },
                   ),
                   Gap(context.height * 0.1),

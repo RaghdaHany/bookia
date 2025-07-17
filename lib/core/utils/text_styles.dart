@@ -5,8 +5,8 @@ class TextStyles {
   static TextStyle getHeadLine1({
     Color? color,
     double? fontSize,
-    FontWeight? fontWeight
-  }){
+    FontWeight? fontWeight,
+  }) {
     return TextStyle(
       fontSize: fontSize ?? 30,
       fontWeight: fontWeight ?? FontWeight.normal,
@@ -17,8 +17,8 @@ class TextStyles {
   static TextStyle getHeadLine2({
     Color? color,
     double? fontSize,
-    FontWeight? fontWeight
-  }){
+    FontWeight? fontWeight,
+  }) {
     return TextStyle(
       fontSize: fontSize ?? 24,
       fontWeight: fontWeight ?? FontWeight.normal,
@@ -26,11 +26,11 @@ class TextStyles {
     );
   }
 
-    static TextStyle getTitle({
+  static TextStyle getTitle({
     Color? color,
     double? fontSize,
-    FontWeight? fontWeight
-  }){
+    FontWeight? fontWeight,
+  }) {
     return TextStyle(
       fontSize: fontSize ?? 18,
       fontWeight: fontWeight ?? FontWeight.normal,
@@ -38,11 +38,11 @@ class TextStyles {
     );
   }
 
-    static TextStyle getBody({
+  static TextStyle getBody({
     Color? color,
     double? fontSize,
-    FontWeight? fontWeight
-  }){
+    FontWeight? fontWeight,
+  }) {
     return TextStyle(
       fontSize: fontSize ?? 16,
       fontWeight: fontWeight ?? FontWeight.normal,
@@ -50,11 +50,11 @@ class TextStyles {
     );
   }
 
-    static TextStyle getSmall({
+  static TextStyle getSmall({
     Color? color,
     double? fontSize,
-    FontWeight? fontWeight
-  }){
+    FontWeight? fontWeight,
+  }) {
     return TextStyle(
       fontSize: fontSize ?? 30,
       fontWeight: fontWeight ?? FontWeight.normal,

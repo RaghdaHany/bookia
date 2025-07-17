@@ -1,8 +1,11 @@
 import 'package:bookia/core/routers/routers.dart';
+import 'package:bookia/core/services/dio_provider.dart';
 import 'package:bookia/core/utils/themes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  DioProvider.init();
   runApp(const MainApp());
 }
 
@@ -14,7 +17,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: Routes.routers,
       theme: AppThemes.lightTheme(),
-      debugShowCheckedModeBanner: false,    
+      debugShowCheckedModeBanner: false,
     );
   }
 }

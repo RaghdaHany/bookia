@@ -5,9 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class SocialLoginWidget extends StatelessWidget {
-  const SocialLoginWidget({
-    super.key,
-  });
+  const SocialLoginWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +13,9 @@ class SocialLoginWidget extends StatelessWidget {
       children: [
         socialCard(AppAssets.fbLogoSvg),
         Gap(10),
-         socialCard(AppAssets.googleLogoSvg),
+        socialCard(AppAssets.googleLogoSvg),
         Gap(10),
-         socialCard(AppAssets.appleLogoSvg),
+        socialCard(AppAssets.appleLogoSvg),
       ],
     );
   }
@@ -25,13 +23,15 @@ class SocialLoginWidget extends StatelessWidget {
   Widget socialCard(String imagePath) {
     return Expanded(
       child: Container(
-          height: 56,
-          decoration: BoxDecoration(
-            border: Border.all(color:AppColors.borderColor),
-            borderRadius: BorderRadius.circular(8),
-            ),
-            child: Center(child: SvgPicture.asset(imagePath, width: 26, height: 22,)),
+        height: 56,
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.borderColor),
+          borderRadius: BorderRadius.circular(8),
         ),
+        child: Center(
+          child: SvgPicture.asset(imagePath, width: 26, height: 22),
+        ),
+      ),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class NameTextFormField extends StatelessWidget {
-  const NameTextFormField({
+class NumberTextFormField extends StatelessWidget {
+  const NumberTextFormField({
     super.key,
     this.hintText,
     this.controller,
@@ -26,9 +26,12 @@ class NameTextFormField extends StatelessWidget {
       },
 
       validator: validator,
-      keyboardType: keyboardType,
-
-      inputFormatters: [FilteringTextInputFormatter.deny(RegExp(r'^\s+'))],
+      keyboardType: TextInputType.number,
+      inputFormatters: [
+        FilteringTextInputFormatter.digitsOnly,
+        LengthLimitingTextInputFormatter(10),
+        FilteringTextInputFormatter.deny(RegExp(r'^\s+')),
+      ],
       decoration: InputDecoration(
         hintText: hintText,
         suffixIcon: suffixIcon,

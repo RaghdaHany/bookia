@@ -9,7 +9,5 @@ class AppAssets {
   static const String eyeSvg = '$iconsPath/eye.svg';
   static const String backSvg = '$iconsPath/back.svg';
   static const String welcomeBackground = '$imagesPath/welcome_bg.png';
-
-
-
+  static const String bookLoadingLottie = '$imagesPath/loading.json';
 }

@@ -6,14 +6,14 @@ import 'package:flutter/widgets.dart';
 class MainButton extends StatelessWidget {
   const MainButton({
     super.key,
-     
-  this.height,
-  this.width,
- required this.text,
-required this.onPressed,
-  this.bgColor,
- this.textColor,
-  this.borderColor,
+
+    this.height,
+    this.width,
+    required this.text,
+    required this.onPressed,
+    this.bgColor,
+    this.textColor,
+    this.borderColor,
   });
 
   final double? height;
@@ -27,20 +27,22 @@ required this.onPressed,
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width?? double.infinity,
+      width: width ?? double.infinity,
       height: height ?? 50,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: bgColor ?? AppColors.Primary,
-          side: borderColor != null ? BorderSide(color: borderColor ?? AppColors.darkColor) : null,
+          side:
+              borderColor != null
+                  ? BorderSide(color: borderColor ?? AppColors.darkColor)
+                  : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
-            ),
           ),
-       child: Text(text , style: TextStyles.getBody(color: textColor)),
-       ),
-    
+        ),
+        child: Text(text, style: TextStyles.getBody(color: textColor)),
+      ),
     );
   }
 }
