@@ -1,10 +1,12 @@
 import 'package:bookia/core/routers/routers.dart';
 import 'package:bookia/core/services/dio_provider.dart';
+import 'package:bookia/core/services/shared_pref.dart';
 import 'package:bookia/core/utils/themes.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SharedPref.init();
   DioProvider.init();
   runApp(const MainApp());
 }

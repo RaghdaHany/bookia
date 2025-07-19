@@ -9,6 +9,7 @@ class NameTextFormField extends StatelessWidget {
     this.validator,
     this.keyboardType,
     this.suffixIcon,
+    this.obscureText = false,
   });
 
   final String? hintText;
@@ -16,10 +17,12 @@ class NameTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final Widget? suffixIcon;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText,
       controller: controller,
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();

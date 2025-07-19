@@ -1,6 +1,7 @@
 import 'package:bookia/core/constants/app_assets.dart';
 import 'package:bookia/core/extensions/navigation.dart';
 import 'package:bookia/core/routers/routers.dart';
+import 'package:bookia/core/services/shared_pref.dart';
 import 'package:bookia/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,9 +17,15 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    String token = SharedPref.getUserToken();
     Future.delayed(const Duration(seconds: 2), () {
-      context.pushWithReplacement(Routes.welcome);
+      if (token.isNotEmpty) {
+        context.pushWithReplacement(Routes.main);
+      } else {
+        context.pushWithReplacement(Routes.welcome);
+      }
     });
+
     super.initState();
   }
 

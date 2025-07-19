@@ -2,7 +2,7 @@ import 'package:bookia/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-showLoadingDialog(BuildContext context){
+showLoadingDialog(BuildContext context) {
   showDialog(
     context: context,
     barrierDismissible: false,
@@ -11,8 +11,8 @@ showLoadingDialog(BuildContext context){
   );
 }
 
-showErrorDialog(BuildContext context, String message){
+showErrorDialog(BuildContext context, String message) {
   ScaffoldMessenger.of(
     context,
-  ).showSnackBar( SnackBar(backgroundColor:Colors.red, content: Text(message)));
+  ).showSnackBar(SnackBar(backgroundColor: Colors.red, content: Text(message)));
 }

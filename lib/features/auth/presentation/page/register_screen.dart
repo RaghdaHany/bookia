@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:bookia/components/buttons/main_back_button.dart';
@@ -29,97 +28,109 @@ class _registerScreenState extends State<registerScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthCubit(),
-      child: BlocConsumer<AuthCubit,AuthState>(
-        listener: (context, state) { 
-          if(state is AuthSuccessState){
-            context.pop();
-            log('success');
+      child: BlocConsumer<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is AuthSuccessState) {
+            context.pushToBase(Routes.main);
 
-          }else if(state is AuthErrorState){
+            log('success');
+          } else if (state is AuthErrorState) {
             context.pop();
             showErrorDialog(context, 'Something Went Wrong');
-          }else if(state is AuthLoadingState){
+          } else if (state is AuthLoadingState) {
             showLoadingDialog(context);
-            
           }
-         },
-        builder:(context , state) {
+        },
+        builder: (context, state) {
           var cubit = context.read<AuthCubit>();
           return Scaffold(
-          appBar: AppBar(automaticallyImplyLeading: false, title: MainBackButton()),
-        
-          bottomNavigationBar: registerButton(context),
-          body: Padding(
-            padding: const EdgeInsets.all(22.0),
-            child: SingleChildScrollView(
-              child: Form(
-                key: cubit.formKey,
-                child: Column(
-                  children: [
-                    Text(
-                      'Welcome back! Glad to see you , Again',
-                      style: TextStyles.getHeadLine1(),
-                    ),
-                    Gap(30),
-                        
-                    NameTextFormField(controller: cubit.nameController,
-                     hintText: ' UserName',
-                     validator: (value){
-                      if(value == null || value.isEmpty){
-                        return 'Please Enter Name' ;
-                      }
-                      return null;
-                     } ,),
-                
-                        
-                    Gap(15),
-                    NameTextFormField(controller: cubit.emailController,
-                     hintText: 'Email',
-                     validator: (value){
-                      if(value == null || value.isEmpty){
-                        return 'Please Enter Email' ;
-                      }else if(!isEmailValid(value)){
-                        return 'Please Enter Valid Email';
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: MainBackButton(),
+            ),
 
-                      }
-                      return null;
-                     } ,),
-                        
-                    Gap(30),
-                        
-                    NameTextFormField(controller: cubit.passwordController,
-                    hintText: 'Password',
-                            validator: (value){
-                      if(value == null || value.isEmpty){
-                        return 'Please Enter Password' ;
-                      }
-                      return null;
-                     } ,),
-                
-                    Gap(15),
-                    NameTextFormField(controller: cubit.passwordConfirmationController,
-                    hintText: 'Confirm Password',
-                    validator: (value){
-                      if(value == null || value.isEmpty){
-                        return 'Please Enter Password Confirmation' ;
-                      }
-                      return null;
-                     } ,),
-                        
-                    Gap(30),
-                    MainButton(text: 'Register', 
-                    onPressed: () {
-                      if(cubit.formKey.currentState!.validate()) {
-                        cubit.register();
-                      }
-                      }),
-                    Gap(20),
-                  ],
+            bottomNavigationBar: registerButton(context),
+            body: Padding(
+              padding: const EdgeInsets.all(22.0),
+              child: SingleChildScrollView(
+                child: Form(
+                  key: cubit.formKey,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Welcome back! Glad to see you , Again',
+                        style: TextStyles.getHeadLine1(),
+                      ),
+                      Gap(30),
+
+                      NameTextFormField(
+                        controller: cubit.nameController,
+                        hintText: ' UserName',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please Enter Name';
+                          }
+                          return null;
+                        },
+                      ),
+
+                      Gap(15),
+                      NameTextFormField(
+                        controller: cubit.emailController,
+                        hintText: 'Email',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please Enter Email';
+                          } else if (!isEmailValid(value)) {
+                            return 'Please Enter Valid Email';
+                          }
+                          return null;
+                        },
+                      ),
+
+                      Gap(30),
+
+                      NameTextFormField(
+                        controller: cubit.passwordController,
+                        obscureText: true,
+                        hintText: 'Password',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please Enter Password';
+                          }
+                          return null;
+                        },
+                      ),
+
+                      Gap(15),
+                      NameTextFormField(
+                        controller: cubit.passwordConfirmationController,
+                        obscureText: true,
+                        hintText: 'Confirm Password',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please Enter Password Confirmation';
+                          }
+                          return null;
+                        },
+                      ),
+
+                      Gap(30),
+                      MainButton(
+                        text: 'Register',
+                        onPressed: () {
+                          if (cubit.formKey.currentState!.validate()) {
+                            cubit.register();
+                          }
+                        },
+                      ),
+                      Gap(20),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        );
+          );
         },
       ),
     );
