@@ -19,9 +19,7 @@ class _HomeSliderState extends State<HomeSlider> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        (widget.sliders.isEmpty) 
-        ? EmptyHomeUi() 
-        : Gap(20),
+        (widget.sliders.isEmpty) ? EmptyHomeUi() : Gap(20),
         CarouselSlider.builder(
           itemCount: widget.sliders.length,
           itemBuilder: (context, int itemIndex, int pageViewIndex) {
@@ -30,8 +28,7 @@ class _HomeSliderState extends State<HomeSlider> {
               child: Image.network(
                 widget.sliders[itemIndex].image ?? '',
                 fit: BoxFit.cover,
-                width: double.infinity
-               
+                width: double.infinity,
               ),
             );
           },
@@ -60,9 +57,7 @@ class _HomeSliderState extends State<HomeSlider> {
         ),
         Gap(14),
         SmoothPageIndicator(
-          controller: PageController(
-            initialPage: activeIndex,
-          ), // PageController
+          controller: PageController(initialPage: activeIndex),
           count: widget.sliders.length,
           effect: ExpandingDotsEffect(
             dotHeight: 7,

@@ -21,8 +21,12 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: SvgPicture.asset(AppAssets.logoSvg,width: 100,),actions: [
-            IconButton(onPressed: (){}, icon: SvgPicture.asset(AppAssets.searchSvg))
+          title: SvgPicture.asset(AppAssets.logoSvg, width: 100),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(AppAssets.searchSvg),
+            ),
           ],
         ),
         body: BlocBuilder<HomeCubit, HomeState>(
@@ -43,7 +47,6 @@ class HomeScreen extends StatelessWidget {
                     Gap(15),
                     BestSellersSection(products: cubit.bestSellersList),
                     Gap(32),
-                    AllProductsSection(products: cubit.allproducts),
                   ],
                 ),
               );
@@ -73,28 +76,6 @@ class BestSellersSection extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(18),
-          child: BestSellerGridView(products: products),
-        ),
-      ],
-    );
-  }
-}
-
-class AllProductsSection extends StatelessWidget {
-  const AllProductsSection({super.key, required this.products});
-
-  final List<Product> products;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text('All Products', style: TextStyles.getHeadLine2()),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16),
           child: BestSellerGridView(products: products),
         ),
       ],

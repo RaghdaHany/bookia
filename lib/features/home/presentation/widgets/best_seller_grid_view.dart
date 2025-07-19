@@ -1,4 +1,5 @@
 import 'package:bookia/core/extensions/navigation.dart';
+import 'package:bookia/core/routers/routers.dart';
 import 'package:bookia/features/home/data/model/best_seller_response/product.dart';
 import 'package:flutter/material.dart';
 
@@ -18,29 +19,25 @@ class BestSellerGridView extends StatelessWidget {
         crossAxisSpacing: 10,
       ),
       itemBuilder: (context, index) {
-
-        if(products.isEmpty){
+        if (products.isEmpty) {
           return ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Container(),
-
           );
-
         }
-           return ClipRRect(
+        return GestureDetector(
+          onTap: () {
+            context.pushWithExtra(Routes.bookDetails, extra: products[index]);
+          },
+          child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.network(
               products[index].image ?? '',
               fit: BoxFit.cover,
-              width: double.infinity),
-
-          ); 
-        // return GestureDetector(
-        //   onTap: () {
-        //     // context.pushTo(Route.bookDetails, extra: products[index]);
-        //   },
-        //   child: BestSellerGridViewItem(product: products[index]),
-        // );
+              width: double.infinity,
+            ),
+          ),
+        );
       },
     );
   }

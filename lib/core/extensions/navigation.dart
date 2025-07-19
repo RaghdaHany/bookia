@@ -6,6 +6,10 @@ extension NavigationExtension on BuildContext {
     push(routeName);
   }
 
+  Future<void> pushWithExtra(String routeName, {Object? extra}) async {
+    await push(routeName, extra: extra);
+  }
+
   void pushWithReplacement(String routeName) {
     pushReplacement(routeName);
   }

@@ -14,7 +14,7 @@ class EmptyHomeUi extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: AppColors.accentColor,
       highlightColor: AppColors.borderColor,
-            
+
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

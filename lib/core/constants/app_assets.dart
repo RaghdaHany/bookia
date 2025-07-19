@@ -16,4 +16,5 @@ class AppAssets {
   static const String profileSvg = '$iconsPath/profile.svg';
   static const String searchSvg = '$imagesPath/search.svg';
   static const String bookSvg = '$imagesPath/book.svg';
+  static const String closeSvg = '$imagesPath/close.svg';
 }
